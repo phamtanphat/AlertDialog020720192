@@ -24,17 +24,23 @@ public class MainActivity extends AppCompatActivity {
 //                            .setDiachi("38 nguyen lam")
 //                            .builder();
 //        Log.d("BBB",nhanvien.getDiachi() + "");
+//        10A1 , 10A2 , 10A3
+//        11A1 ,11A2 ,11A3
+        Sinhvien sinhvien = new Sinhvien("Nguyen Van A",WeekDay.MONDAY);
+        sinhvien.setNgayhoc(WeekDay.SUNDAY);
+        Log.d("BBB",sinhvien.getNgayhoc().toString());
         btnAlertDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Hộp thoại xác nhận");
                 builder.setMessage("Bạn muốn tắt app hay không");
                 builder.setIcon(R.mipmap.ic_launcher);
+                builder.setCancelable(false);
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        dialogInterface.dismiss();
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
